@@ -1,10 +1,7 @@
-import CounterReducer from './reducers/CountReducer';
-
+import LoginReducer from './reducers/LoginReducer';
 import {createStore} from "redux";
+const store = createStore(LoginReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-const store = createStore(CounterReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-
-export default store ;
-
+export default store;
 
