@@ -1,4 +1,4 @@
-import loans from "./assests/loan.json";
+import loans from "./assets/loan.json";
 import './Loan.css';
 
 function Loandetai(){
