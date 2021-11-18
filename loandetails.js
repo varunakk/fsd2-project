@@ -1,13 +1,24 @@
 import loans from "./assets/loan.json";
 import './Loan.css';
+import users from "./assets/users.json";
+import {connect} from "react-redux";
 
-function Loandetai(){
+import db from "./assets/db.json"; 
+
+function Loandetai({user}){
+
+    console.log(user)
     return(<div class="loandet">
-
-        <h1>Your Loan</h1>
-        {loans.filter( y => y.acc==="123"  ).map(x => <h1>accno: {x.acc}<br/>loan_amount: {x.loan_amount}<br/>interest:{x.interest}<br/>timeperiod:{x.no_of_months}<br/>amount to be payed:{x.amount_to_be_payed}</h1>)}
+    <h1> {user} , Your Loan</h1>
+    {db.users.users.filter((nam) => nam.name === user).map(x => db.loans.filter( hom => hom.acc=== x.acc  ).map(y => <h1>accno: {y.acc}<br/>loan_amount: {y.loan_amount}<br/>interest:{y.interest}<br/>timeperiod:{y.no_of_months}<br/>amount to be payed:{y.amount_to_be_payed}</h1>))}
     </div>
     
     )
 }
-export default Loandetai;
+const mapStateToProps = (state)=>{
+    return {
+        user: state.user   
+    };
+}
+    
+export default connect(mapStateToProps)(Loandetai);
